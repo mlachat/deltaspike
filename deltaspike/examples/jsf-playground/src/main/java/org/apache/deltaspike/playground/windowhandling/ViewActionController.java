@@ -19,11 +19,14 @@
 package org.apache.deltaspike.playground.windowhandling;
 
 import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.apache.deltaspike.core.api.config.view.navigation.ViewNavigationHandler;
 import org.apache.deltaspike.jsf.spi.scope.window.ClientWindow;
 
 @Named
@@ -34,6 +37,13 @@ public class ViewActionController
     private ClientWindow clientWindow;
     
     private Date lastTimeLinkAction;
+	
+	@Inject
+	protected ViewNavigationHandler viewNavigationHandler;
+
+	public void navigate() {
+		viewNavigationHandler.navigateTo(Pages.Clientwindow.ClientWindowClass.class);
+	}
 
     @PostConstruct
     public void init()
