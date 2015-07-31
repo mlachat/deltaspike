@@ -37,15 +37,21 @@
         <br />
         <h:link value="GET Link" outcome="test.xhtml" />
         <br />
-        <br />
-        <h:commandLink value="Postback">
-        </h:commandLink>
+        <h:button value="GET Button" outcome="test.xhtml" />
         <br />
         <br />
-        <h:commandLink value="Postback with outcome" action="test.xhtml?faces-redirect=true">
+        <h:commandLink value="Postback"/>
+        <br />
+        <h:commandButton value="Postback"/>
         <br />
         <br />
-        </h:commandLink>
+        <h:commandLink value="Postback with outcome" action="test.xhtml?faces-redirect=true"/>
+        <br />
+        <h:commandButton value="Postback with outcome" action="test.xhtml?faces-redirect=true"/>
+        <br />
+        <br />
+        <h:commandLink value="Link with navigationHandler" action="#{viewActionController.navigate}"/>
+        <br />
         <h:commandButton value="Button with navigationHandler" action="#{viewActionController.navigate}"/>
         <br />
         <br />
@@ -53,16 +59,28 @@
             <f:ajax render="@form" execute="@this" />
         </h:commandLink>
         <br />
+        <h:commandButton value="AJAX Postback">
+            <f:ajax render="@form" execute="@this" />
+        </h:commandButton>
+        <br />
         <br />
         <h:commandLink value="AJAX Postback with outcome" action="test.xhtml?faces-redirect=true">
             <f:ajax render="@form" execute="@this" />
         </h:commandLink>
+        <br />
+        <h:commandButton value="AJAX Postback with outcome" action="test.xhtml?faces-redirect=true">
+            <f:ajax render="@form" execute="@this" />
+        </h:commandButton>
         <br />
         <br />
         Last time linkAction: #{viewActionController.lastTimeLinkAction} <br/>
         <h:commandLink value="AJAX action" action="#{viewActionController.linkAction}">
             <f:ajax render="@form" execute="@this" />
         </h:commandLink>
+        <br />
+        <h:commandButton value="AJAX action" action="#{viewActionController.linkAction}">
+            <f:ajax render="@form" execute="@this" />
+        </h:commandButton>
     </h:form>
     
 </h:body>
